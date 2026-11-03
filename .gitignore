@@ -1,0 +1,32 @@
+# Local environments and Python/build artifacts
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# User inputs and generated bundles (keep only empty directory placeholders)
+/origin/*
+!/origin/.gitkeep
+/output/*
+!/output/.gitkeep
+/tmp/
+/models/
+.*.stage-*/
+.table-refresh-*/
+.fraction-images-*/
+
+# Local configuration
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log

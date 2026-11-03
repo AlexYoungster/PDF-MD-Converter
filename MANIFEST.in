@@ -1,0 +1,10 @@
+include README.md CHANGELOG.md CONTRIBUTING.md requirements-tested.txt .gitignore .gitattributes
+recursive-include docs *.md
+recursive-include examples *.py *.md
+recursive-include tests *.py
+global-exclude *.py[cod]
+prune output
+prune origin
+prune .venv
+prune tmp
+prune models

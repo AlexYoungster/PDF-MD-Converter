@@ -1,0 +1,7 @@
+# Constraints tested on Windows / Python 3.12.10; not a cross-platform lock.
+# Optional OCR and Office dependencies are installed through extras.
+PyMuPDF==1.28.2
+Pillow==13.0.0
+beautifulsoup4==4.15.0
+pytest==9.2.0
+build==1.6.1

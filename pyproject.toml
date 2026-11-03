@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf-md-converter"
+version = "0.1.0"
+description = "Structure-aware PDF to Markdown conversion with source evidence and independent fidelity checks"
+readme = "README.md"
+requires-python = ">=3.11"
+keywords = ["pdf", "markdown", "document-conversion", "tables", "fidelity"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Operating System :: OS Independent",
+  "Topic :: Text Processing :: Markup :: Markdown",
+]
+dependencies = ["PyMuPDF>=1.26,<2", "beautifulsoup4>=4.12", "Pillow>=10"]
+
+[project.urls]
+Repository = "https://github.com/AlexYoungster/PDF-MD-Converter"
+Documentation = "https://github.com/AlexYoungster/PDF-MD-Converter#readme"
+Issues = "https://github.com/AlexYoungster/PDF-MD-Converter/issues"
+
+[project.optional-dependencies]
+ocr = ["rapidocr>=3.4", "onnxruntime>=1.20", "opencv-python-headless>=4.10"]
+office = ["python-docx>=1.1", "python-pptx>=0.6.23", "openpyxl>=3.1"]
+test = ["pytest>=8"]
+dev = ["pytest>=8", "build>=1.2"]
+
+[project.scripts]
+pdf-md-converter = "document_converter.cli:main"
+doc2md = "document_converter.cli:main"
+doc2md-check = "document_converter.fidelity:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["document_converter*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = ["private_source: optional regression requiring a user-supplied handbook and sometimes its prior output"]
